@@ -1,0 +1,52 @@
+# Java Client for Monitoring and Processing Properties Files
+
+## Overview
+This Java program monitors a specified directory for new Java properties files,
+processes them by read the file into a Map, applying a regular expression pattern filter for keys,
+and relays the filtered mappings to a server program. The program also deletes the processed properties files.
+
+## Usage
+
+### Prerequisites
+- Java Development Kit (JDK) installed (version 8 or later)
+- IntelliJ IDEA (or any Java IDE that supports Java projects)
+
+### Import and Run in IntelliJ IDEA
+1. Unzip the project on your machine at a specific directory path.
+2. Open IntelliJ IDEA.
+3. Click on "File" -> "Open" and select the project directory.
+4. IntelliJ IDEA will recognize the project and configure it automatically.
+5. Take the Run menu -> Select Edit Configurations -> Add New Configuration -> Fill the Program arguments field.
+   In Program arguments field, it is required to mention config file path including config file name
+   For example: If the config file is placed directly in D Drive then mention it like D:\client-config.properties
+   Do not copy paste in Program arguments field.
+5. In the Project Explorer, locate the `Client.java` file.
+6. Right-click on `Client.java` and choose "Run Client.main()" from the context menu.
+
+## Configuration
+1. Create a configuration file (e.g., `client-config.properties`) with the following content:
+
+    # Directory path to be monitored
+    # On Windows, directory paths are specified using backslashes (\).
+    # So, the directory path D:\monitor should be written as D:\\monitor
+    directoryPath=D:\\monitor
+    # Regular expression pattern for key filtering
+    filterPattern=[a-zA-Z0-9_.]+
+    # Address of the corresponding server program
+    serverAddress=localhost
+    # Port of the corresponding server program
+    serverPort=80
+
+2. The program will monitor the specified directory, process new java properties files, and relay filtered mappings to the server.
+3. Keep in mind that Java properties files are designed to handle text-based key-value pairs and are not suitable
+   for storing binary data.
+4. A sample java properties file look like:
+    # General settings
+    app.name=MyApp
+    app.version=1.0
+
+## Notes
+- Ensure that the server program is running and configured to listen on the specified address and port.
+
+
+

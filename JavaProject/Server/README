@@ -1,0 +1,41 @@
+# Java Server for Handling Properties Files
+
+## Overview
+This Java server program is designed to handle incoming properties files from multiple clients.
+It listens for client connections, receives properties files, processes them, and saves the processed properties to disk.
+
+## Usage
+
+### Prerequisites
+- Java Development Kit (JDK) installed (version 8 or later)
+- IntelliJ IDEA (or any Java IDE that supports Java projects)
+
+### Import and Run in IntelliJ IDEA
+1. Unzip the project on your machine at a specific directory path.
+2. Open IntelliJ IDEA.
+3. Click on "File" -> "Open" and select the project directory.
+4. IntelliJ IDEA will recognize the project and configure it automatically.
+5. Take the Run menu -> Select Edit Configurations -> Add New Configuration -> Fill the Program arguments field.
+   In Program arguments field, it is required to mention config file path including config file name
+   For example: If the config file is placed directly in D Drive then mention it like D:\server-config.properties
+   Do not copy paste in Program arguments field.
+5. In the Project Explorer, locate the `Server.java` file.
+6. Right-click on `Client.java` and choose "Run Client.main()" from the context menu.
+
+## Configuration
+1. Create a configuration file (e.g., `server-config.properties`) with the following content:
+
+    # Server Configuration
+    # Output directory to store processed properties files
+    outputDirectory=D:\\ROC
+    # Port to listen on
+    port=80
+
+2. The server will start listening on the specified port for incoming connections.
+
+## Notes
+- Ensure that the output directory exists, and the server has the necessary permissions to write to it.
+- The server will process incoming properties files, saving them to the specified output directory.
+
+
+
